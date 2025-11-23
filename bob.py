@@ -4,6 +4,7 @@ class Bob(object):
         self.velocity = PVector(0,0)
         self.acceleration = PVector(0,0)
         self.mass = mass
+        self.damping = 0.99
         
     
     def display(self):
@@ -15,6 +16,7 @@ class Bob(object):
         
     def update(self):
         self.velocity+=self.acceleration
+        self.velocity*=self.damping
         self.location += self.velocity
         
         self.acceleration.mult(0)
